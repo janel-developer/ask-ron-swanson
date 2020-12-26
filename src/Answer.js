@@ -3,22 +3,29 @@ import styled from 'styled-components'
 
 const ImageDiv = styled.div `
 	width: 100%;	
+	height: 100vh;
 	position: relative;
+	background-image: url('ron-swanson-portrait.jpg');
+	background-repeat: no-repeat;
+	@media (min-width: 768px) {
+		background-image: url('ron-swanson.jpg');
+	}
 `
 
 const AnswerDiv = styled.div `
 	position: absolute;
-	width: 50%;
+	width: 45%;
 	top: 80px;
 	left: 10px;
-	font-size: 2em;
 	color: white;
+	font-size: 1.2em;
 	background-color: rgba(0, 0, 0, .7);
 	padding: 8px;
+	@media (min-width: 768px) {
+		font-size: 2em;
+	}
 `
-const RonImage = styled.img `
-	width: 100%;
-`
+
 const Button = styled.div `
 	font-size: 1.2em;
 	padding: 5px;
@@ -33,7 +40,7 @@ const Button = styled.div `
 `
 
 const Answer = () => {
-	const [quote, setQuote] = useState('Ask me anything')
+	const [quote, setQuote] = useState(null)
 	const API = 'https://ron-swanson-quotes.herokuapp.com/v2/quotes'
 
 	function handleClick(event) {
@@ -46,13 +53,12 @@ const Answer = () => {
 	}
 
 	return (
-		<ImageDiv>
+		<>
 			<Button onClick={handleClick}>Give me your wisdom, Ron</Button>
-			<RonImage src='ron-swanson.jpg' />
-			<AnswerDiv>
-				{quote}
-			</AnswerDiv>
+		<ImageDiv>
+			{ quote && <AnswerDiv> {quote} </AnswerDiv> }
 		</ImageDiv>
+		</>
 	)
 }
 
