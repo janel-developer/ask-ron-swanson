@@ -10,19 +10,19 @@ const AnswerDiv = styled.div `
 	position: absolute;
 	width: 50%;
 	top: 80px;
-	left: 20px;
-	font-size: 30px;
+	left: 10px;
+	font-size: 2em;
 	color: white;
 	background-color: rgba(0, 0, 0, .7);
-	padding: 10px;
+	padding: 8px;
 `
 const RonImage = styled.img `
 	width: 100%;
 `
 const Button = styled.div `
-	font-size: 1.5em;
+	font-size: 1.2em;
 	padding: 5px;
-	width: 300px;
+	width: 280px;
 	text-align: center;
 	background-color: #990033;
 	margin: 10px 0;
@@ -34,7 +34,7 @@ const Button = styled.div `
 
 const Answer = () => {
 	const [quote, setQuote] = useState('Ask me anything')
-	const API = 'http://ron-swanson-quotes.herokuapp.com/v2/quotes'
+	const API = 'https://ron-swanson-quotes.herokuapp.com/v2/quotes'
 
 	function handleClick(event) {
 		event.preventDefault()
